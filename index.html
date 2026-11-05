@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#7c5ce7">
+<title>Miss Dina's Phonics World</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">🌈 <span>Miss Dina's</span></div>
+  <h1>Phonics World</h1>
+  <p>Little mind, big dream ✨</p>
+</header>
+<nav aria-label="Main navigation">
+  <button class="tab active" data-page="home">🏠 Home</button>
+  <button class="tab" data-page="letters">🔤 Alphabet</button>
+  <button class="tab" data-page="studio">🎙️ Teacher Studio</button>
+  <button class="tab" data-page="game">🎲 Play</button>
+</nav>
+<main>
+<section id="home" class="page active">
+  <div class="welcome card">
+    <h2>Hello, little learners! 👋</h2>
+    <p>Welcome to Miss Dina's Phonics World. Let's learn letters, sounds and words!</p>
+    <button id="welcomePlay" class="primary">▶ Listen to Miss Dina</button>
+    <p class="small">Teacher: record your welcome message in Teacher Studio.</p>
+  </div>
+  <h2>Choose your adventure</h2>
+  <div class="tiles">
+    <button class="tile" data-go="letters">🔤<b>Alphabet</b><small>Letters & sounds</small></button>
+    <button class="tile" data-go="studio">🎙️<b>Teacher Studio</b><small>Your own voice</small></button>
+    <button class="tile" data-go="game">🎲<b>Letter Game</b><small>Let's practise!</small></button>
+  </div>
+  <div class="notice">💡 This first version stores recordings on this device. Use “Export backup” regularly so your recordings are safe.</div>
+</section>
+<section id="letters" class="page">
+  <h2>🔤 Alphabet</h2>
+  <p>Choose a letter to see its sound and a word.</p>
+  <div id="alphabetGrid" class="alphabet-grid"></div>
+  <div id="letterDetail" class="card detail">
+    <div class="big-letter">A a</div><h3>A is for Apple 🍎</h3>
+    <p>Sound: /ă/</p><button class="primary" id="playSelected">▶ Listen</button>
+  </div>
+</section>
+<section id="studio" class="page">
+  <h2>🎙️ Teacher Voice Studio</h2>
+  <p>Record your own voice for the welcome message and each letter/word.</p>
+  <label class="field-label" for="recordItem">Choose recording:</label>
+  <select id="recordItem"></select>
+  <div class="record-panel card">
+    <div id="recordLabel" class="record-label">Welcome message</div>
+    <div class="record-actions">
+      <button id="startRecord" class="primary">⏺ Start recording</button>
+      <button id="stopRecord" disabled>⏹ Stop</button>
+      <button id="playRecord" disabled>▶ Play saved</button>
+    </div>
+    <p id="recordStatus" class="small" aria-live="polite">Ready to record. Allow microphone access when asked.</p>
+  </div>
+  <div class="card backup">
+    <h3>🔐 Keep your work safe</h3>
+    <p>Export a backup file to your phone. Import it later to restore recordings on this device or another one.</p>
+    <button class="primary" id="exportBackup">⬇ Export backup</button>
+    <label class="file-button">⬆ Import backup<input id="importBackup" type="file" accept="application/json"></label>
+    <p class="small">Keep the backup file somewhere safe (for example, Google Drive). Browser data can be cleared by Android.</p>
+  </div>
+</section>
+<section id="game" class="page">
+  <h2>🎲 Find the letter!</h2>
+  <div class="card game-card">
+    <p>Which letter makes this sound?</p>
+    <div id="gamePrompt" class="game-prompt">/ă/</div>
+    <div id="gameChoices" class="choices"></div>
+    <p id="gameFeedback" aria-live="polite"></p>
+    <button id="newQuestion">New question ↻</button>
+  </div>
+</section>
+</main>
+<footer>Made with care by Miss Dina Adnan Bakir 💜</footer>
+<script src="app.js"></script>
+</body>
+</html>
